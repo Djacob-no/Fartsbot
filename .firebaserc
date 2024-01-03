@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "smartboat-3291b"
-  }
+    "Production": "lappegrenser"
+  },
+  "targets": {},
+  "etags": {}
 }
