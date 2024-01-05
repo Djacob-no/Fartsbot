@@ -17,8 +17,8 @@
 </script>
 
 <svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Svelte demo app" />
+  <title>Lappegrenser</title>
+  <meta name="description" content="Lappegrenser i Norge" />
 </svelte:head>
 
 <section>

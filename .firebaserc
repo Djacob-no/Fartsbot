@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "lappegrenser"
-  }
+    "Production": "lappegrenser"
+  },
+  "targets": {},
+  "etags": {}
 }
