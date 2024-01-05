@@ -5,7 +5,7 @@
   import GpsSpeed from "./GpsSpeed.svelte";
 
   import { onMount } from "svelte";
-  import app from "../Firebase.js";
+  import { app, analytics } from "../Firebase.js";
   import SpeedLimitZone from "./SpeedLimitZone.svelte";
 
   onMount(() => {});

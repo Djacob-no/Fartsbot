@@ -1,23 +1,28 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// apiKey is not a secret in firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyD0zSuwaObUusRvFx5ptm6GKielGLx-7nE",
-  authDomain: "smartboat-3291b.firebaseapp.com",
-  projectId: "smartboat-3291b",
-  storageBucket: "smartboat-3291b.appspot.com",
-  messagingSenderId: "124780714784",
-  appId: "1:124780714784:web:00d482bb512bbd439b9545",
-  measurementId: "G-4MGC09PD6N",
+  apiKey: "AIzaSyCsHr2kF6oqQJDvSYrySjJ4o-TIOIUbjO4",
+  authDomain: "lappegrenser.firebaseapp.com",
+  projectId: "lappegrenser",
+  storageBucket: "lappegrenser.appspot.com",
+  messagingSenderId: "970885673473",
+  appId: "1:970885673473:web:5419a323feaa672019c600",
+  measurementId: "G-ET2HV8HVCC",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-//const analytics = getAnalytics(app);
-
-export default app;
+let analytics = {};
+isSupported().then((isSupported) => {
+  if (isSupported) {
+    analytics = getAnalytics(app);
+  }
+});
+export { app, analytics };
