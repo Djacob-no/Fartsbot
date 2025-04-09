@@ -4,7 +4,7 @@
 
   $: fine = calculateFine(speed, speedLimit);
 
-    function calculateFine(currentSpeed: number, limit: number) {
+  function calculateFine(currentSpeed: number, limit: number) {
     const overSpeed = currentSpeed - limit;
     if (overSpeed <= 0) return "Ingen bot";
 
@@ -24,15 +24,12 @@
       if (overSpeed <= 35) return "15 600 kr";
       if (limit >= 90 && overSpeed <= 40) return "16 250 kr";
 
-        
       if (limit === 50 && currentSpeed >= 92) return "samfunnsstraff";
       if (limit === 60 && currentSpeed >= 110) return "samfunnsstraff";
       if (limit === 70 && currentSpeed >= 120) return "samfunnsstraff";
       if (limit === 80 && currentSpeed >= 130) return "samfunnsstraff";
       if (limit === 90 && currentSpeed >= 142) return "samfunnsstraff";
       if (limit === 100 && currentSpeed >= 155) return "samfunnsstraff";
-        
-
     }
     return "Høyere hastighet";
   }
@@ -78,12 +75,7 @@
       >
     </svg>
   </div>
-  <div class="current-speed">
-    Din fart = {speed}
-  </div>
-  <div class="speed-limit">
-      Hastighet = {speedLimit}
-    </div>
+
   <div class="fine">Bot = {fine}</div>
   <div class="lappegrensa">
     Lappegrensa = {redThreshold}
@@ -110,8 +102,7 @@
   .current-speed {
     font-weight: bold;
   }
-    .fine{
-        font-weight: bold;
-        
-    }
+  .fine {
+    font-weight: bold;
+  }
 </style>

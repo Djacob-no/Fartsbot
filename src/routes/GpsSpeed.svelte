@@ -3,8 +3,7 @@
 
   export let speed: number;
   const dispatch = createEventDispatcher();
-  $: dispatch("message", speed);
-
+  let currentPosition = null;
   let previousCoords: object | undefined;
   let watchId: number | undefined;
   let previousTimestamp: any; // Store timestamp outside the function
@@ -13,11 +12,13 @@
     if ("geolocation" in navigator) {
       watchId = navigator.geolocation.watchPosition(
         (position) => {
+          currentPosition = position.coords;
           if (position.coords.speed !== null) {
-            speed = parseFloat((position.coords.speed * 3.6).toFixed(1)); // Convert from m/s to km/h
+            speed = parseFloat((position.coords.speed * 3.6).toFixed(1)); // m/s to km/h
           } else {
             speed = parseFloat(calcSpeedFromCoords(position.coords));
           }
+          dispatch("update", { speed, position: currentPosition });
         },
         (error) => {
           console.error(error);
