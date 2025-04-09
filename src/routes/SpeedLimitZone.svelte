@@ -2,6 +2,41 @@
   export let speed: number;
   export let speedLimit: number;
 
+  $: fine = calculateFine(speed, speedLimit);
+
+    function calculateFine(currentSpeed: number, limit: number) {
+    const overSpeed = currentSpeed - limit;
+    if (overSpeed <= 0) return "Ingen bot";
+
+    if (limit <= 60) {
+      if (overSpeed <= 5) return "1 200 kr";
+      if (overSpeed <= 10) return "3 250 kr";
+      if (overSpeed <= 15) return "5 800 kr";
+      if (overSpeed <= 20) return "8 400 kr";
+      if (overSpeed <= 25) return "13 050 kr";
+    } else {
+      if (overSpeed <= 5) return "1 200 kr";
+      if (overSpeed <= 10) return "3 250 kr";
+      if (overSpeed <= 15) return "5 200 kr";
+      if (overSpeed <= 20) return "7 250 kr";
+      if (overSpeed <= 25) return "9 800 kr";
+      if (overSpeed <= 30) return "13 050 kr";
+      if (overSpeed <= 35) return "15 600 kr";
+      if (limit >= 90 && overSpeed <= 40) return "16 250 kr";
+
+        
+      if (limit === 50 && currentSpeed >= 92) return "samfunnsstraff";
+      if (limit === 60 && currentSpeed >= 110) return "samfunnsstraff";
+      if (limit === 70 && currentSpeed >= 120) return "samfunnsstraff";
+      if (limit === 80 && currentSpeed >= 130) return "samfunnsstraff";
+      if (limit === 90 && currentSpeed >= 142) return "samfunnsstraff";
+      if (limit === 100 && currentSpeed >= 155) return "samfunnsstraff";
+        
+
+    }
+    return "Høyere hastighet";
+  }
+
   // Calculate thresholds based on speedLimit
   $: yellowThreshold = speedLimit;
   $: redThreshold = determineRedThreshold(); // 60% more than speedLimit
@@ -43,9 +78,13 @@
       >
     </svg>
   </div>
-  <!-- <div class="current-speed">
+  <div class="current-speed">
     Din fart = {speed}
-  </div> -->
+  </div>
+  <div class="speed-limit">
+      Hastighet = {speedLimit}
+    </div>
+  <div class="fine">Bot = {fine}</div>
   <div class="lappegrensa">
     Lappegrensa = {redThreshold}
   </div>
@@ -71,4 +110,8 @@
   .current-speed {
     font-weight: bold;
   }
+    .fine{
+        font-weight: bold;
+        
+    }
 </style>
