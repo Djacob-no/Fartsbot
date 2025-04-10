@@ -6,7 +6,7 @@ import { getAnalytics, isSupported } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// apiKey is not a secret in firebase
+// apiKey is not super secret in firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCsHr2kF6oqQJDvSYrySjJ4o-TIOIUbjO4",
   authDomain: "lappegrenser.firebaseapp.com",
