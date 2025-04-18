@@ -4,7 +4,7 @@
   import SpeedLimitZone from "./SpeedLimitZone.svelte";
 
   let data = { speed: 0, position: null };
-  let osmSpeedLimit = -1; // Speed limit from OSM
+  $: osmSpeedLimit = -1; // Speed limit from OSM
   let lastFetch = 0; // Timestamp of the last fetch
 
   function handleUpdate(event) {
